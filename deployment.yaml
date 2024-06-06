@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usermanagment_back-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: usermanagment_back-deployment
+  template:
+    metadata:
+      labels:
+        app: usermanagment_back-deployment
+    spec:
+      containers:
+        - name: usermanagment_back-service
+          image: usermanagment_back-service
+          ports:
+            - containerPort: 80
